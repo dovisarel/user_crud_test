@@ -52,6 +52,17 @@ return [
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
+
+
+            // // 'url' => 'mysql',// env('DATABASE_URL'),
+            // 'host' => '127.0.0.1',//env('DB_HOST', '127.0.0.1'),
+            // 'port' => '8086', // env('DB_PORT', '3306'),
+            // 'database' => 'user_crud_test', //env('DB_DATABASE', 'forge'),
+            // 'username' => 'user_crud_test', // env('DB_USERNAME', 'forge'),
+            // 'password' => '123456', //env('DB_PASSWORD', ''),
+            // // 'unix_socket' => env('DB_SOCKET', ''),
+
+
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',

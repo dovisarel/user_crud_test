@@ -1,5 +1,27 @@
 <?php
 
+
+// try {
+//     echo time() . "\n\n";
+//     $con = new PDO("mysql:host=mysql57;port=3306;dbname=user_crud_test", "user_crud_test", "123456");
+//     // $con = new PDO("mysql:host=mysql;port=8086;dbname=user_crud_test");
+//     // $con = new PDO("mysql:host=mysql;port=8086;dbname=user_crud_test", "user_crud_test", "123456", []);
+// } catch (\Throwable $th) {
+//     echo $th->getMessage();
+
+//     echo "\n\n\n\n\n";
+
+//     var_dump($th);
+// }
+
+
+// die('End');
+
+
+
+// ---------------
+
+
 /**
  * Laravel - A PHP Framework For Web Artisans
  *

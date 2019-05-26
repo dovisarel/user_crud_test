@@ -4,9 +4,9 @@
 version: "3.1"
 services:
 
-    mysql:
-      image: mysql:8.0
-      container_name: user-crud-test-mysql
+    mysql57:
+      image: mysql:5.7
+      container_name: user-crud-test-mysql-57
       working_dir: /application
       volumes:
         - .:/application
@@ -17,6 +17,8 @@ services:
         - MYSQL_PASSWORD=123456
       ports:
         - "8086:3306"
+      networks:
+        - mynet
 
     webserver:
       image: nginx:alpine
@@ -26,13 +28,26 @@ services:
           - .:/application
           - ./phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
       ports:
-       - "8084:80"
+        - "8084:80"
+      networks:
+        - mynet
 
     php-fpm:
       build: phpdocker/php-fpm
       container_name: user-crud-test-php-fpm
       working_dir: /application
+      environment:
+        - DB_HOST=mysql57
+        - DB_PORT=3306
+        - DB_DATABASE=user_crud_test
+        - DB_USERNAME=user_crud_test
+        - DB_PASSWORD=123456
       volumes:
         - .:/application
         - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.3/fpm/conf.d/99-overrides.ini
+      networks:
+        - mynet
 
+networks:
+  mynet:
+    driver: bridge
